@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ActionButtonsCard extends StatelessWidget {
-  const ActionButtonsCard(
+class ActionButtonsCard extends StatefulWidget {
+  ActionButtonsCard(
       {super.key, required this.title, required this.numerucalNumber});
   final String title;
-  final int numerucalNumber;
+  int numerucalNumber;
 
+  @override
+  State<ActionButtonsCard> createState() => _ActionButtonsCardState();
+}
+
+class _ActionButtonsCardState extends State<ActionButtonsCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,11 +23,11 @@ class ActionButtonsCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              title,
+              widget.title,
               style: const TextStyle(color: Colors.grey, fontSize: 18),
             ),
             Text(
-              numerucalNumber.toString(),
+              widget.numerucalNumber.toString(),
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 35,
@@ -34,7 +39,11 @@ class ActionButtonsCard extends StatelessWidget {
                 FloatingActionButton(
                   shape: const StadiumBorder(),
                   backgroundColor: Colors.grey,
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      widget.numerucalNumber++;
+                    });
+                  },
                   child: const Icon(
                     Icons.add,
                     color: Colors.white,
@@ -46,7 +55,11 @@ class ActionButtonsCard extends StatelessWidget {
                 FloatingActionButton(
                   shape: const StadiumBorder(),
                   backgroundColor: Colors.grey,
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      widget.numerucalNumber--;
+                    });
+                  },
                   child: const Icon(
                     Icons.remove,
                     color: Colors.white,

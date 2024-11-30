@@ -9,14 +9,14 @@ class UserDataSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Expanded(
             child: ActionButtonsCard(
           title: 'Weight',
           numerucalNumber: 60,
         )),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Expanded(
